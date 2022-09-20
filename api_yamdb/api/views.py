@@ -1,6 +1,5 @@
 import random
 
-from core.filters import TitlesFilter
 from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
@@ -10,14 +9,15 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
+
+from core.filters import TitlesFilter
 from reviews.models import Categories, Genres, Review, Title, User
 
 from .permissions import (AdminEdit, AdminOnly,
                           AuthorOrModearatorOrAdminChangePermission)
 from .serializer import (CategorieSerializer, CommentSerializer,
-                         GenreSerializer, ReviewSerializer,
-                         SignUpSerializer, TitleSerializer,
-                         TokenSerializer, UserSerializer)
+                         GenreSerializer, ReviewSerializer, SignUpSerializer,
+                         TitleSerializer, TokenSerializer, UserSerializer)
 
 STAFF_EMAIL = 'staff@yamdb.yamdb'
 
@@ -128,8 +128,7 @@ class CommentViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         review = get_object_or_404(Review, pk=self._get_review_id(),
                                    title=self._get_title_id())
-        new_queryset = review.comments.all()
-        return new_queryset
+        return review.comments.all()
 
     def perform_create(self, serializer):
         review = get_object_or_404(Review, pk=self._get_review_id(),

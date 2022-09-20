@@ -3,7 +3,7 @@ from django.utils.deconstruct import deconstructible
 
 
 @deconstructible
-class validate_range(object):
+class ValidateRange(object):
     """Валидация значения в диапазоне"""
     def compare(self, a, b, c):
         return a >= c and a <= b

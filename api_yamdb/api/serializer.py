@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField
 from rest_framework.validators import UniqueValidator
+
 from reviews.models import (USER, Categories, Comments, Genres, GenresTitles,
                             Review, Title, User)
 
@@ -184,8 +185,8 @@ class TitleSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         if 'genre' not in self.initial_data:
-            title = Title.objects.create(**validated_data)
-            return title
+            return Title.objects.create(**validated_data)
+
         genres = validated_data.pop('genre')
         title = Title.objects.create(**validated_data)
         for genre in genres:
