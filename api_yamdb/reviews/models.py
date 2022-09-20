@@ -1,8 +1,7 @@
+from core.models import CreatedModel
+from core.validators import ValidateRange
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
-from core.models import CreatedModel
-from core.validators import validate_range
 
 USER = 'user'
 MODERATOR = 'moderator'
@@ -138,7 +137,7 @@ class Review(CreatedModel):
         verbose_name='Автор')
     score = models.PositiveSmallIntegerField(
         verbose_name='Оценка',
-        validators=[validate_range(1, 10)]
+        validators=[ValidateRange(1, 10)]
     )
 
     class Meta:

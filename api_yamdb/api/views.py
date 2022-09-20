@@ -1,5 +1,6 @@
 import random
 
+from core.filters import TitlesFilter
 from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
@@ -9,8 +10,6 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
-
-from core.filters import TitlesFilter
 from reviews.models import Categories, Genres, Review, Title, User
 
 from .permissions import (AdminEdit, AdminOnly,
