@@ -19,6 +19,8 @@ class AuthorOrModearatorOrAdminChangePermission(permissions.BasePermission):
         if request.user.is_authenticated:
             return (request.user == obj.author or request.user.role in (
                 MODERATOR, ADMIN,))
+        else:
+            return False
 
 
 class AdminOnly(permissions.BasePermission):
@@ -27,6 +29,8 @@ class AdminOnly(permissions.BasePermission):
     def has_permission(self, request, view):
         if request.user.is_authenticated:
             return request.user.role == ADMIN or request.user.is_superuser
+        else:
+            return False
 
 
 class AdminEdit(permissions.BasePermission):
@@ -37,5 +41,8 @@ class AdminEdit(permissions.BasePermission):
     def has_permission(self, request, view):
         if request.method in permissions.SAFE_METHODS:
             return True
-        if request.user.is_authenticated:
-            return request.user.role == ADMIN or request.user.is_superuser
+        else:
+            if request.user.is_authenticated:
+                return request.user.role == ADMIN or request.user.is_superuser
+            else:
+                return False

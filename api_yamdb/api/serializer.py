@@ -181,6 +181,8 @@ class TitleSerializer(serializers.ModelSerializer):
         rating = obj.reviews.aggregate(Avg('score')).get('score__avg')
         if rating:
             return round(rating, 1)
+        else:
+            return None
 
     def create(self, validated_data):
         if 'genre' not in self.initial_data:
