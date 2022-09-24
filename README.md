@@ -32,10 +32,12 @@ http://localhost/
 DB_ENGINE=
 DB_NAME=
 POSTGRES_USER=
-POSTGRES_PASSWORD=postgres
+POSTGRES_PASSWORD=
 DB_HOST=
 DB_PORT=
 SECRET_KEY=
+DEBUG=
+ALLOWED_HOSTS=
 ```
 ##Примеры запросов к API:
 Endpoint:
@@ -83,9 +85,13 @@ POST запрос:
 ### Технологии
 Python 3.7
 Django 2.2.19
-Docker 
+Docker
+nginx:1.21.3 
 
 ### Авторы
 Святослав
 
 https://github.com/Sviatoslavvvik/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
+
+### доступ к развернотому проекту:
+51.250.101.206
