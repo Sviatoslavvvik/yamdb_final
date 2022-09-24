@@ -7,9 +7,6 @@
 ```
 git clone 
 ```
-```
-cd 
-```
 Запустить docker-compose:
 ```
 docker-compose up -d
@@ -17,11 +14,6 @@ docker-compose up -d
 Выполнить миграции:
 ```
 docker-compose exec web python manage.py migrate
-```
-Заполнить БД:
-``
-docker cp fixtures.json <id контейнера web>:/app
-docker-compose exec web python manage.py loaddata dump.json
 ```
 Проект доступен по адресу :
 ```
@@ -45,6 +37,7 @@ Endpoint:
 api/v1/posts/{id}/
 ```
 GET запрос:
+```
 ```
 api/v1/posts/1/
 ```
@@ -91,7 +84,8 @@ nginx:1.21.3
 ### Авторы
 Святослав
 
+
 https://github.com/Sviatoslavvvik/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
 
-### доступ к развернотому проекту:
+В сети:
 51.250.101.206
