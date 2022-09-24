@@ -84,7 +84,7 @@ nginx:1.21.3
 Святослав
 
 
-https://github.com/Sviatoslavvvik/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
+![This is an image](https://github.com/Sviatoslavvvik/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 В сети:
 51.250.101.206
